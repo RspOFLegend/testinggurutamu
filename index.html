@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+
+.slide {
+  display: none;
+}
+.fade {
+  animation: fade 1.5s ease-in-out forwards;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  max-height: 400px; /* misalnya batas tinggi maksimum */
+  object-fit: cover; /* bikin gambar rapi tanpa distorsi */
+}
+    
+    </style>
+</head>
+
+<body>
+    <div class="slideshow-container">
+        <div class="slide fade">
+          <img src="galeri1.jpg" alt="">
+        </div>
+        <div class="slide fade">
+          <img src="galeri2.jpg" alt="">
+        </div>
+        <div class="slide fade">
+          <img src="galeri3.jpg" alt="">
+        </div>
+      </div>
+      
+      
+</body>
+<script>
+    let slideIndex = 0;
+
+function showSlides() {
+  const slides = document.querySelectorAll(".slide");
+  slides.forEach(slide => slide.style.display = "none");
+
+  slideIndex++;
+  if (slideIndex > slides.length) slideIndex = 1;
+
+  slides[slideIndex - 1].style.display = "block";
+
+  setTimeout(showSlides, 3000);
+}
+
+showSlides();
+
+</script>
+</html>
